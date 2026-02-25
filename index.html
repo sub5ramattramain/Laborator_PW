@@ -7,6 +7,9 @@
     <title>Pagina mea de prezentare</title>
 </head>
 <body>
+    <script>
+    alert("Hello World!");
+    </script>
     <header>
         <h1>Popa-Rosu David-Fabian</h1>
         <p>Facultatea de Inginerie Electrica si Stiinta Calculatoarelor</p>
@@ -22,7 +25,7 @@
     <main>
         <section id="about">
             <img src="images/OIP-1141646399.jpg" alt="Poză de profil cu mine" loading="lazy">
-            <p>hello ts is me i main ramattra and i suck at living i think thats enough heres a lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam eveniet debitis reprehenderit doloribus natus excepturi tempora esse incidunt eum, quod numquam ducimus sed ad consequuntur? Dolorem placeat labore ea!</p>
+            <p>hello ts is me i main ramattra and i suck at living i think thats enough heres a lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam eveniet debitis reprehenderit doloribus natus excepturi tempora esse incidunt eum, quod numquam ducimus sed ad consequuntur? Dolorem placeat labore ea!</p><br>
         </section>
 
         <section id="education">
@@ -35,12 +38,34 @@
     </main>
 
     <aside>
-        <p><strong>Citatul favorit:</strong> "SUFFER AS I HAVE (ramattra ult line)"</p>
+        <br><p><strong>Citatul favorit:</strong> "SUFFER AS I HAVE (ramattra ult line)"</p><br>
         <p><strong>Hobby-uri:</strong>ramattra, ramattra, ramattra</p>
     </aside>
 
     <footer>
-        <p>&copy; 2026 David-Fabian Popa-Rosu. Contact: emailul.tau@exemplu.ro</p>
+        <script src="js/contact_form.js"></script>
+        <p>&copy; 2026 Fabian Popa-Rosu. Contact: fpoparosu@gmail.com</p>
+        
+        <form action="#" method="POST">
+            <h3>Contactează-mă</h3>
+            
+            <div class="form-group">
+                <label for="name">Nume:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mesaj:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            
+            <button type="submit" onclick="submitForm()">Trimite mesajul</button>
+        </form>
     </footer>
 </body>
 </html>
