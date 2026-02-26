@@ -33,13 +33,13 @@ form.addEventListener('submit', function(event)
         feedback.style.color="red";
     }
 
-    if(!email.includes('@'))
+    else if(!email.includes('@'))
     {
         feedback.textContent="emailu trebuie sa contina @";
         feedback.style.color="red";
     }
 
-    if(mesaj.length<10)
+    else if(mesaj.length<10)
     {
         feedback.textContent="mesajul trebuie sa aiba macar 10 caractere";
         feedback.style.color="red";
@@ -51,4 +51,15 @@ form.addEventListener('submit', function(event)
         feedback.style.color="green";
     }
 });
+
+const themeButton=document.getElementById('theme-toggle');
+
+themeButton.addEventListener('click', function()
+{
+    document.body.classList.toggle('dark-mode');
+    if(document.body.classList.contains('dark-mode'))
+        themeButton.textContent='Light Mode';
+    else
+        themeButton.textContent='Dark Mode';
+})
 

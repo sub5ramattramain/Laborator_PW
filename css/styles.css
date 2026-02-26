@@ -106,3 +106,19 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: var(--secondary-color);
 }
+
+body.dark-mode
+{
+    --background-color:#1a1a2e;
+    --text-color:#e0e0e0;
+}
+
+#theme-toggle
+{
+    background-color: transparent;
+    border: 1px solid currentColor;
+    color: inherit;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
