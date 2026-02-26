@@ -4,11 +4,16 @@ const oraCurenta = new Date().getHours();
 
 let mesajSalut = "";
 
-if (oraCurenta >= 6 && oraCurenta < 12) {
+if(oraCurenta >= 6 && oraCurenta < 12) 
+{
     mesajSalut = "neata! welcome to my page vro"; 
-} else if (oraCurenta >= 12 && oraCurenta < 18) {
+} 
+else if(oraCurenta >= 12 && oraCurenta < 18) 
+{
     mesajSalut = "buna ziua vro! welcome to my page";       
-} else {
+} 
+else
+{
     mesajSalut = "buna seara vro! welcome to my page";      
 }
 
@@ -52,6 +57,7 @@ form.addEventListener('submit', function(event)
     }
 });
 
+///exercitiul 3
 const themeButton=document.getElementById('theme-toggle');
 
 themeButton.addEventListener('click', function()
@@ -62,4 +68,29 @@ themeButton.addEventListener('click', function()
     else
         themeButton.textContent='Dark Mode';
 })
+
+///exercitiul 4
+const titluriSectiuni=document.querySelectorAll('main h2');
+
+titluriSectiuni.forEach(function(h2)
+{
+    h2.textContent='▼ ' + h2.textContent;
+    h2.style.cursor='pointer';
+
+    h2.addEventListener('click', function()
+    {
+        if(this.textContent.startsWith('▼'))
+            this.textContent=this.textContent.replace('▼', '▶');
+        else
+            this.textContent=this.textContent.replace('▶', '▼');
+        
+        let elementUrmator=this.nextElementSibling;
+
+        while(elementUrmator)
+        {
+            elementUrmator.classList.toggle('hidden');
+            elementUrmator=elementUrmator.nextElementSibling;
+        }
+    });
+});
 
