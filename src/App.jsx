@@ -18,6 +18,8 @@ return <Card key={index} title={item.title} description={item.description} />;
 <p>Numele vostru </p><br></br>
 <p>Ai apasat de {count} ori</p>
 <button onClick={() => setCount(count + 1)}>Click</button>
+<button onClick={() => setCount(count-1)}>Unclick</button>
+<button onClick={() => setCount(0)}>Reset</button>
 </div>
 );
 }
