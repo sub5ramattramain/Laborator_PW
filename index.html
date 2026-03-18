@@ -1,78 +1,13 @@
-<!DOCTYPE html>
-<html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Pagina mea de prezentare</title>
-</head>
-<body>
-    <script>
-    alert("Hello World!");
-    </script>
-    <header>
-        <h1>Popa-Rosu David-Fabian</h1>
-        <p>Facultatea de Inginerie Electrica si Stiinta Calculatoarelor</p>
-    </header>
-
-    <nav>
-        <ul>
-            <li><a href="#about">despre mine</a></li>
-            <li><a href="#education">educație</a></li>
-            <li><button id="theme-toggle">Dark Mode</button></li>
-        </ul>
-    </nav>
-
-    <main>
-        <section id="about">
-            <img src="images/OIP-1141646399.jpg" alt="Poză de profil cu mine" loading="lazy">
-            <p>hello ts is me i main ramattra and i suck at living i think thats enough heres a lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque ipsam eveniet debitis reprehenderit doloribus natus excepturi tempora esse incidunt eum, quod numquam ducimus sed ad consequuntur? Dolorem placeat labore ea!</p><br>
-        </section>
-
-        <section id="education">
-            <h2>studii recente</h2>
-            <ol id="education">
-                <li>something something (2020-2024)</li>
-                <li>i main ramattra isnt that enough (2024-prezent)</li>
-            </ol>
-        </section>
-    </main>
-
-    <aside>
-        <br><p><strong>citatul favorit:</strong> "SUFFER AS I HAVE (ramattra ult line)"</p><br>
-        <p><strong>hobby-uri:</strong>ramattra, ramattra, ramattra</p>
-    </aside>
-
-    <footer>
-        <p>&copy; 2026 Fabian Popa-Rosu. contact: fpoparosu@gmail.com</p>
-        
-        <form action="#" method="POST">
-            <h3>contact me twin</h3>
-            
-            <div class="form-group">
-                <label for="name">Nume:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Mesaj:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            
-            <button type="submit">Trimite mesajul</button>
-            <p id="form-feedback"></p>
-        </form>
-    </footer>
-    <div style="height: 600px;">
-            <p style="text-align: center; color: gray; padding-top: 200px;">(test pentru buton)</p>
-    </div>
-    <button id="back-to-top" class="hidden">back to top</button>
-    <script src="js/contact_form.js"></script>
-    <script src="js/array.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>proiect-web</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
