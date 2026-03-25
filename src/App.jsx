@@ -1,5 +1,7 @@
 import Card from './Card';
 import { useState } from 'react';
+import QuickNote from './QuickNote';
+import TodoList from './TodoList';
 
 const projects = [
 { title: "Proiect 1", description: "Pagina personala" },
@@ -9,12 +11,15 @@ const projects = [
 
 function App() {
   const [count, setCount] = useState(0);
+  
 return (
 <div>
 <h1>Dashboard</h1>
 {projects.map(function(item, index) {
 return <Card key={index} title={item.title} description={item.description} />;
 })}
+<QuickNote />
+<TodoList />
 <p>Numele vostru </p><br></br>
 <p>Ai apasat de {count} ori</p>
 <button onClick={() => setCount(count + 1)}>Click</button>
