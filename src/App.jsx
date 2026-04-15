@@ -2,6 +2,7 @@ import Card from './Card';
 import { useState } from 'react';
 import QuickNote from './QuickNote';
 import TodoList from './TodoList';
+import ContactForm from './ContactForm';
 
 const projects = [
 { title: "Proiect 1", description: "Pagina personala" },
@@ -20,6 +21,7 @@ return <Card key={index} title={item.title} description={item.description} />;
 })}
 <QuickNote />
 <TodoList />
+<ContactForm />
 <p>Numele vostru </p><br></br>
 <p>Ai apasat de {count} ori</p>
 <button onClick={() => setCount(count + 1)}>Click</button>
