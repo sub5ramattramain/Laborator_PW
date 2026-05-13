@@ -23,14 +23,16 @@ function ProjectList() {
 
   return (
     <div>
-      <h3>Proiecte</h3>
+      <h3>proiecte</h3>
+      
       <input 
         type="text" 
-        placeholder="Caută după titlu..." 
+        placeholder="cauta dupa titlu..." 
         value={search} 
         onChange={(e) => setSearch(e.target.value)} 
         style={{ marginBottom: '15px', padding: '5px' }}
       />
+      
       {projects
         .filter(function(project) {
           return project.title.toLowerCase().includes(search.toLowerCase());
@@ -38,6 +40,13 @@ function ProjectList() {
         .map(function(project) {
           return <Card key={project.id} {...project} />;
         })}
+
+      <div style={{ border: '1px solid #ccc', marginTop: '20px', padding: '10px', borderRadius: '5px' }}>
+        <h4>statistici</h4>
+        <p>total proiecte: {projects.length}</p>
+        <p>finalizate: {projects.filter(p => p.done).length}</p>
+        <p>in lucru: {projects.filter(p => !p.done).length}</p>
+      </div>
     </div>
   );
 }
