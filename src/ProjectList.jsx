@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import Card from './Card'; 
+import Card from './Card';
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [search, setSearch] = useState('');
 
   useEffect(function() {
     fetch('/data/projects.json')
@@ -13,10 +13,6 @@ function ProjectList() {
       })
       .then(function(data) {
         setProjects(data.projects);
-        setLoading(false);
-      })
-      .catch(function(err) {
-        setError('eroare la incarcarea datelor');
         setLoading(false);
       });
   }, []);
@@ -28,9 +24,20 @@ function ProjectList() {
   return (
     <div>
       <h3>Proiecte</h3>
-      {projects.map((project) => (  
-        <Card key={project.id} {...project} />
-      ))}
+      <input 
+        type="text" 
+        placeholder="Caută după titlu..." 
+        value={search} 
+        onChange={(e) => setSearch(e.target.value)} 
+        style={{ marginBottom: '15px', padding: '5px' }}
+      />
+      {projects
+        .filter(function(project) {
+          return project.title.toLowerCase().includes(search.toLowerCase());
+        })
+        .map(function(project) {
+          return <Card key={project.id} {...project} />;
+        })}
     </div>
   );
 }
