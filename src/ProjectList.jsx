@@ -51,6 +51,23 @@ function ProjectList() {
     }
   }
 
+  async function handleDelete(id) {
+    console.log("ID-ul pe care incerc sa il sterg este:", id);
+    try {
+      const response = await fetch('http://localhost:3000/api/projects/' + id, {
+        method: 'DELETE',
+      });
+      
+      if (!response.ok) {
+        throw new Error('eroare la stergerea proiectului');
+      }
+      
+      setProjects(projects.filter(p => p._id !== id));
+    } catch (err) {
+      console.error('eroare:', err);
+    }
+  }
+
   if (loading) {
     return <p>se incarca...</p>;
   }
@@ -100,7 +117,7 @@ function ProjectList() {
           return project.title.toLowerCase().includes(search.toLowerCase());
         })
         .map(function(project) {
-          return <Card key={project._id} {...project} />;
+          return <Card key={project._id} {...project} onDelete={handleDelete} />;
         })}
 
       <div style={{ border: '1px solid #ccc', marginTop: '20px', padding: '10px', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
