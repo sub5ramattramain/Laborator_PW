@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+import './styles.css';
 
 function ProjectList() {
   const [projects, setProjects] = useState([]);
@@ -56,9 +57,9 @@ function ProjectList() {
   }
 
   async function handleDelete(id) {
-    console.log("ID-ul pe care incerc sa il sterg este:", id);
+    console.log("id-ul pe care incerc sa il sterg este:", id);
     try {
-      if (window.confirm('Sigur doriti sa stergeti acest proiect?')) {
+      if (window.confirm('sigur doriti sa stergeti acest proiect?')) {
         const response = await fetch('http://localhost:3000/api/projects/' + id, {
           method: 'DELETE',
         });
@@ -68,7 +69,6 @@ function ProjectList() {
         }
 
         setProjects(projects.filter(p => p._id !== id));
-
       }
     } catch (err) {
       console.error('eroare:', err);
@@ -133,14 +133,14 @@ function ProjectList() {
     <div>
       <h3>adauga proiect</h3>
 
-      <form onSubmit={handleSubmit} style={{ marginBottom: '20px', padding: '15px', border: '1px solid #ccc', borderRadius: '5px' }}>
+      <form onSubmit={handleSubmit} className="form-container">
         <input
           type="text"
           placeholder="titlu proiect..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
-          style={{ display: 'block', marginBottom: '10px', padding: '5px', width: '100%', maxWidth: '300px' }}
+          className="form-input"
         />
         <input
           type="text"
@@ -148,9 +148,9 @@ function ProjectList() {
           value={tech}
           onChange={(e) => setTech(e.target.value)}
           required
-          style={{ display: 'block', marginBottom: '10px', padding: '5px', width: '100%', maxWidth: '300px' }}
+          className="form-input"
         />
-        <button type="submit" style={{ padding: '8px 16px', backgroundColor: '#2c3e50', color: 'white', border: 'none', borderRadius: '4px' }}>
+        <button type="submit" className="btn btn-dark">
           adauga
         </button>
       </form>
@@ -162,7 +162,7 @@ function ProjectList() {
         placeholder="cauta dupa titlu..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        style={{ marginBottom: '15px', padding: '5px', width: '100%', maxWidth: '300px' }}
+        className="form-input"
       />
 
       {projects
@@ -174,30 +174,24 @@ function ProjectList() {
 
           if (editingId === currentId) {
             return (
-              <div key={currentId} style={{ border: '2px dashed #3498db', padding: '15px', margin: '10px 0', borderRadius: '5px' }}>
+              <div key={currentId} className="form-container" style={{ borderStyle: 'dashed', borderWidth: '2px', borderColor: '#3498db' }}>
                 <h4>editare proiect</h4>
                 <input
                   type="text"
                   value={editTitle}
                   onChange={(e) => setEditTitle(e.target.value)}
-                  style={{ display: 'block', marginBottom: '10px', padding: '5px', width: '100%', maxWidth: '300px' }}
+                  className="form-input"
                 />
                 <input
                   type="text"
                   value={editTech}
                   onChange={(e) => setEditTech(e.target.value)}
-                  style={{ display: 'block', marginBottom: '10px', padding: '5px', width: '100%', maxWidth: '300px' }}
+                  className="form-input"
                 />
-                <button
-                  onClick={() => handleSaveEdit(currentId)}
-                  style={{ padding: '5px 10px', backgroundColor: '#3498db', color: 'white', border: 'none', borderRadius: '4px', marginRight: '10px', cursor: 'pointer' }}
-                >
+                <button onClick={() => handleSaveEdit(currentId)} className="btn btn-blue">
                   salveaza
                 </button>
-                <button
-                  onClick={() => setEditingId(null)}
-                  style={{ padding: '5px 10px', backgroundColor: '#95a5a6', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}
-                >
+                <button onClick={() => setEditingId(null)} className="btn btn-gray">
                   anuleaza
                 </button>
               </div>
@@ -215,7 +209,7 @@ function ProjectList() {
           );
         })}
 
-      <div style={{ border: '1px solid #ccc', marginTop: '20px', padding: '10px', borderRadius: '5px', backgroundColor: '#f9f9f9' }}>
+      <div className="form-container">
         <h4>statistici</h4>
         <p>total proiecte: {projects.length}</p>
         <p>finalizate: {projects.filter(p => p.done).length}</p>

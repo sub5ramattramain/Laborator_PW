@@ -1,54 +1,26 @@
+import './styles.css';
+
 function Card({ id, _id, title, tech, done, onDelete, onToggle, onEdit }) {
   const currentId = _id || id;
+  const cardClass = done ? 'card card-done' : 'card card-progress';
+  
   return (
-    <div style={{ border: '1px solid #ccc', padding: '10px', margin: '10px 0', borderRadius: '5px' }}>
-      <h4>{title}</h4>
+    <div className={cardClass}>
+      <h4 style={{ marginTop: 0 }}>{title}</h4>
       <p><strong>tehnologii:</strong> {tech}</p>
       <p>
         <strong>status:</strong> {done ? 'finalizat' : 'in lucru'}
       </p>
-      <button
-        onClick={() => onToggle(currentId, done)}
-        style={{
-          marginTop: '10px',
-          marginRight: '10px',
-          padding: '5px 10px',
-          backgroundColor: done ? '#f39c12' : '#27ae60',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-      >
-        schimba status
+      
+      <button className={done ? 'btn btn-gray' : 'btn btn-green'} onClick={() => onToggle(currentId, done)}>
+        {done ? 'redeschide' : 'finalizeaza'}
       </button>
-      <button
-        onClick={onEdit}
-        style={{
-          marginTop: '10px',
-          marginRight: '10px',
-          padding: '5px 10px',
-          backgroundColor: '#3498db',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-      >
+
+      <button className="btn btn-blue" onClick={onEdit}>
         editeaza
       </button>
-      <button
-        onClick={() => onDelete(currentId)}
-        style={{
-          marginTop: '10px',
-          padding: '5px 10px',
-          backgroundColor: '#e74c3c',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-      >
+
+      <button className="btn btn-red" onClick={() => onDelete(currentId)}>
         sterge
       </button>
     </div>
